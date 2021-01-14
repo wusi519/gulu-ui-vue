@@ -7,7 +7,14 @@
 
 <script lang="ts">
   export default {
-    name: 'button-group'
+    mounted() {
+      for (let node of this.$el.children) {
+        let name = node.nodeName.toLowerCase();
+        if (name !== 'button') {
+          console.warn(`g-button-group的子元素应该全部是g-button,但是你写的是${name}`);
+        }
+      }
+    }
   };
 </script>
 
@@ -29,9 +36,10 @@
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
       }
-      &:hover{
-        position:relative;
-        z-index:1
+
+      &:hover {
+        position: relative;
+        z-index: 1
       }
     }
   }
