@@ -9,7 +9,11 @@
 </template>
 
 <script lang="ts">
+  import Icon from './icon'
   export default {
+    components:{
+      'g-icon':Icon
+    },
     props: {
       icon: {},
       loading: {
@@ -42,6 +46,4 @@
       > .icon {order: 2;margin-right: 0;margin-left: .1em;}
       > .content {order: 1}
       > .loading {animation: spin 1s infinite linear;}}}
-
-
 </style>
